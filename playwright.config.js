@@ -14,9 +14,11 @@ const config =  ({
   use: 
   {
     // Base URL to use in actions like `await page.goto("/")`.
-    browserName: 'chromium',
+    browserName: 'firefox',
 
   }
 
 })
 module.exports = config;
+
+// npx playwright test
