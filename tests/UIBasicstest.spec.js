@@ -1,13 +1,20 @@
-const {test} = require('@playwright/test');
+const { test, expect } = require('@playwright/test');
 
+test('Browser Context Playwright test', async ({ browser }) => {
+  const context = await browser.newContext();
+  const page = await context.newPage();
 
-test('First Playwright Test', async () => // async function to perform actions on the page = => arrow function
-{
-    //playwright code 
-    //step1 - open the browser
-    //step2 - open a new page
-    //step3 - navigate to the url
-    //step4 - perform actions on the page
-    //step5 - close the browser
+  await page.goto('https://getbot.ai/login');
+  console.log(await page.title());
 
+  await expect(page).toHaveURL(/\/login/);
+
+  await context.close();
+});
+
+test('Page Playwright test', async ({ page }) => {
+  await page.goto('https://getbot.ai/login');
+  console.log(await page.title());
+
+  await expect(page).toHaveURL(/\/login/);
 });
