@@ -14,7 +14,9 @@ const config =  ({
   use: 
   {
     // Base URL to use in actions like `await page.goto("/")`.
-    browserName: 'firefox',
+    //browserName: 'firefox',
+        browserName: 'webkit',
+
 
   }
 
